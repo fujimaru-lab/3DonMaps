@@ -1,5 +1,5 @@
-import lowerGeoData from './data/gsi20201101220423432.json';
-import upperGeoData from './data/upper_layer.json';
+import lowerGeoData from "./data/gsi20201101220423432.json";
+import upperGeoData from "./data/upper_layer.json";
 
 let map: google.maps.Map;
 
@@ -17,20 +17,24 @@ function initMap(): void {
   map.data.addGeoJson(upperGeoData);
   map.data.setStyle({
     fillColor: "orange",
-    fillOpacity: 0.75
+    fillOpacity: 0.75,
   });
 
   // オブジェクト(i-Vinciの立体文字列)の側面のpolylineを追加
-  for (let i = 0; i < lowerGeoData.features.length; i++){
-    for (let j = 0; j < lowerGeoData.features[i].geometry.coordinates[0].length; j++){
-      let lp = lowerGeoData.features[i].geometry.coordinates[0][j];
-      let up = upperGeoData.features[i].geometry.coordinates[0][j];
+  for (let i = 0; i < lowerGeoData.features.length; i++) {
+    for (
+      let j = 0;
+      j < lowerGeoData.features[i].geometry.coordinates[0].length;
+      j++
+    ) {
+      const lp = lowerGeoData.features[i].geometry.coordinates[0][j];
+      const up = upperGeoData.features[i].geometry.coordinates[0][j];
       const line = new google.maps.Polyline({
         path: [
-          {lat: lp[1], lng: lp[0]},
-          {lat: up[1], lng: up[0]}
+          { lat: lp[1], lng: lp[0] },
+          { lat: up[1], lng: up[0] },
         ],
-        map: map
+        map: map,
       });
     }
   }
