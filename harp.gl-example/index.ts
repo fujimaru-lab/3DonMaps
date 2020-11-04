@@ -1,9 +1,3 @@
-/*
- * Copyright (C) 2017-2020 HERE Europe B.V.
- * Licensed under Apache 2.0, see full license in LICENSE
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { GeoCoordinates } from "@here/harp-geoutils";
 import { MapAnchor, MapViewEventNames } from "@here/harp-mapview";
 import THREE = require("three");
@@ -43,7 +37,6 @@ mapView.mapAnchors.add(anchor);
 async function getIVinci() {
     const loader = new GLTFLoader();
     loader.load('./resources/vinci.glb', (gltf) => {
-        const obj = gltf.scene;
         anchor.add(gltf.scene);
         mapView.update();
     }, 
