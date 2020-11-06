@@ -5,6 +5,7 @@ Mapへの3D描画を試す
 ## harp.gl-example
 
 harp.glを使用してMap上にi-Vinciのオブジェクトを描画
+![i-Vinci in NewYork](./Pic/i-vinci-in-newyork2.gif)
 
 ### 手順
 
