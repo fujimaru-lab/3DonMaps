@@ -1,0 +1,81 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "_markerType": "Circle",
+        "_color": "#000000",
+        "_opacity": 0.5,
+        "_weight": 3,
+        "_fillColor": "#a2c4c9",
+        "_fillOpacity": 0.5,
+        "_radius": 1000
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.761704,
+          35.693099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "_color": "#000000",
+        "_opacity": 0.5,
+        "_weight": 3,
+        "_fillColor": "#6aa84f",
+        "_fillOpacity": 0.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              139.753153,
+              35.691635
+            ],
+            [
+              139.754677,
+              35.690503
+            ],
+            [
+              139.770877,
+              35.691844
+            ],
+            [
+              139.771028,
+              35.697055
+            ],
+            [
+              139.768882,
+              35.698432
+            ],
+            [
+              139.765406,
+              35.699878
+            ],
+            [
+              139.755363,
+              35.702126
+            ],
+            [
+              139.754291,
+              35.69756
+            ],
+            [
+              139.75148,
+              35.695382
+            ],
+            [
+              139.753153,
+              35.691635
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

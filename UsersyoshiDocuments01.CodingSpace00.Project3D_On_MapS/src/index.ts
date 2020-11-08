@@ -1,11 +1,14 @@
 import lowerGeoData from "./data/gsi20201101220423432.json";
 import upperGeoData from "./data/upper_layer.json";
+import circleAndPolygonGeoData from "./data/circle_and_polygon.json";
 
 let map: google.maps.Map;
+const circleGeoData = circleAndPolygonGeoData.features[0];
+const polygonGeoData = circleAndPolygonGeoData.features[1];
 
 function initMap(): void {
   map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-    zoom: 17.5,
+    zoom: 15.5,
     center: { lat: 35.693173, lng: 139.761801 },
   });
 
@@ -19,6 +22,32 @@ function initMap(): void {
     fillColor: "orange",
     fillOpacity: 0.75,
   });
+
+  // 矩形をoverlayに追加。
+  // GeoJsonから読み取ったデータをもとに矩形を初期化
+  const rectangle = new google.maps.Polygon({
+    paths: (polygonGeoData.geometry.coordinates[0] as number[][]).map((c) => {
+      return new google.maps.LatLng(c[1], c[0]);
+    }),
+    strokeOpacity: polygonGeoData.properties._fillOpacity,
+    fillColor: polygonGeoData.properties._fillColor,
+  });
+  rectangle.setMap(map);
+
+  // 円形をoverlayに追加
+  // GeoJsonから読み取ったデータをもとに円形を初期化
+  const circle = new google.maps.Circle({
+    center: new google.maps.LatLng(
+      circleGeoData.geometry.coordinates[1] as number,
+      circleGeoData.geometry.coordinates[0] as number
+    ),
+    draggable: true,
+    editable: true,
+    fillColor: circleGeoData.properties._fillColor,
+    fillOpacity: circleGeoData.properties._fillOpacity,
+    radius: circleGeoData.properties._radius,
+  });
+  circle.setMap(map);
 
   // オブジェクト(i-Vinciの立体文字列)の側面のpolylineを追加
   for (let i = 0; i < lowerGeoData.features.length; i++) {
